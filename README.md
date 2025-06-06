@@ -4,15 +4,13 @@ Una aplicación web progresiva para registrar y visualizar letras de canciones.
 
 ## Características
 
-- Agrega, visualiza y busca canciones.
-- Guarda los datos en el navegador.
+- Agrega, edita y busca canciones.
+- Diseño responsivo.
+- Instalación como app.
 - Funciona sin conexión.
-- Puede instalarse en dispositivos móviles.
-- Vista dinámica: despliega la letra solo al hacer clic en una canción.
 
-## Despliegue en GitHub Pages
+## Instrucciones
 
-1. Sube este repositorio a GitHub.
-2. Ve a **Settings > Pages**.
-3. Selecciona la rama `main` y la carpeta `/root`.
-4. Guarda los cambios y accede desde la URL generada por GitHub Pages.
+1. Sube los archivos a un repositorio de GitHub.
+2. Activa GitHub Pages desde Settings.
+3. Selecciona branch `main` y carpeta raíz `/`.
