@@ -8,6 +8,7 @@ Una aplicación web progresiva para registrar y visualizar letras de canciones.
 - Guarda los datos en el navegador.
 - Funciona sin conexión.
 - Puede instalarse en dispositivos móviles.
+- Vista dinámica: despliega la letra solo al hacer clic en una canción.
 
 ## Despliegue en GitHub Pages
 
