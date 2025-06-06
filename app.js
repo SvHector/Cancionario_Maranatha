@@ -16,7 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
       .forEach((c, i) => {
         const div = document.createElement('div');
         div.className = 'cancion';
-        div.innerHTML = `<h3>${c.titulo}</h3><p><strong>Autor:</strong> ${c.autor}</p><pre>${c.letra}</pre>`;
+        div.innerHTML = `
+          <h3>${c.titulo}</h3>
+          <p><strong>Autor:</strong> ${c.autor}</p>
+          ${c.notas ? `<p><em>${c.notas}</em></p>` : ''}
+          <div class="letra" style="display:none;"><pre>${c.letra}</pre></div>
+        `;
+        div.addEventListener('click', () => {
+          const letra = div.querySelector('.letra');
+          letra.style.display = letra.style.display === 'none' ? 'block' : 'none';
+        });
         lista.appendChild(div);
       });
   };
