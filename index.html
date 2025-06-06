@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2e7d32" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>Cancionero</title>
+</head>
+<body>
+  <header>
+    <h1>Cancionero</h1>
+    <input type="text" id="buscar" placeholder="Buscar canciones...">
+  </header>
+
+  <main>
+    <section id="lista-canciones"></section>
+
+    <button id="btn-nueva">+ Nueva canción</button>
+
+    <div id="formulario-cancion" class="modal oculto">
+      <h2>Nueva canción</h2>
+      <input type="text" id="titulo" placeholder="Título">
+      <input type="text" id="autor" placeholder="Autor">
+      <textarea id="letra" placeholder="Letra..." rows="10"></textarea>
+      <input type="text" id="genero" placeholder="Género (opcional)">
+      <textarea id="notas" placeholder="Notas (opcional)"></textarea>
+      <button id="guardar-cancion">Guardar</button>
+      <button id="cancelar">Cancelar</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('SW registrado:', reg))
+        .catch(err => console.error('SW error:', err));
+    }
+  </script>
+</body>
+</html>
