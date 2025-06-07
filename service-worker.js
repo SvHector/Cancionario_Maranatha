@@ -8,11 +8,13 @@ self.addEventListener('install', e => {
         './style.css',
         './app.js',
         './firebase-config.js',
-        './manifest.json'
+        './manifest.json',
+        './splash-screen.png'
       ]);
     })
   );
 });
+
 self.addEventListener('fetch', e => {
   e.respondWith(
     caches.match(e.request).then(response => {
