@@ -7,6 +7,7 @@ self.addEventListener('install', e => {
         './index.html',
         './style.css',
         './app.js',
+        './firebase-config.js',
         './manifest.json'
       ]);
     })
