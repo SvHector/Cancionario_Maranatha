@@ -1,3 +1,3 @@
 # Cancionero Maranatha
 
-✔ Eliminación funcional con 'remove()' de Firebase.
+✅ Ahora con opción de instalación como App (PWA).
