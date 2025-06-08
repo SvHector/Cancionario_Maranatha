@@ -1,3 +1,3 @@
 # Maranatha Cancionero
 
-App PWA con Firebase Realtime DB, splash screen personalizado e íconos listos para instalación.
+App PWA con Firebase, splash screen e íconos. Favoritos activado.

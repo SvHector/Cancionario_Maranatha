@@ -4,6 +4,7 @@ import { db, ref, push, set, onValue, update } from "./firebase-config.js";
 document.addEventListener("DOMContentLoaded", () => {
   const lista = document.getElementById("lista-canciones");
   const buscar = document.getElementById("buscar");
+  const filtroFavoritas = document.getElementById("filtroFavoritas");
   const btnNueva = document.getElementById("btn-nueva");
   const modal = document.getElementById("formulario-cancion");
   const guardar = document.getElementById("guardar-cancion");
@@ -20,35 +21,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
       Object.entries(data).forEach(([key, c]) => {
         if (
-          c.titulo.toLowerCase().includes(filtro) ||
-          c.autor.toLowerCase().includes(filtro)
-        ) {
-          const div = document.createElement("div");
-          div.className = "cancion";
-          div.innerHTML = `
-            <h3>${c.titulo}</h3>
-            <p><strong>Autor:</strong> ${c.autor}</p>
-            ${c.notas ? `<p><em>${c.notas}</em></p>` : ""}
-            <div class="letra" style="display:none;"><pre>${c.letra}</pre></div>
-            <button class="editar" data-key="${key}">Editar</button>
-          `;
-          div.querySelector("h3").onclick = () => {
-            const letra = div.querySelector(".letra");
-            letra.style.display = letra.style.display === "none" ? "block" : "none";
-          };
-          div.querySelector(".editar").onclick = (e) => {
-            e.stopPropagation();
-            const c = data[key];
-            document.getElementById("titulo").value = c.titulo;
-            document.getElementById("autor").value = c.autor;
-            document.getElementById("letra").value = c.letra;
-            document.getElementById("genero").value = c.genero;
-            document.getElementById("notas").value = c.notas;
-            editKey = key;
-            modal.classList.remove("oculto");
-          };
-          lista.appendChild(div);
-        }
+          (filtro && !c.titulo.toLowerCase().includes(filtro) && !c.autor.toLowerCase().includes(filtro)) ||
+          (filtroFavoritas.checked && !c.favorita)
+        ) return;
+
+        const div = document.createElement("div");
+        div.className = "cancion";
+        div.innerHTML = `
+          ⭐ <span class="estrella" data-key="${key}" style="cursor:pointer;color:${c.favorita ? 'gold' : '#ccc'};">★</span><br>
+          <h3>${c.titulo}</h3>
+          <p><strong>Autor:</strong> ${c.autor}</p>
+          ${c.notas ? `<p><em>${c.notas}</em></p>` : ""}
+          <div class="letra" style="display:none;"><pre>${c.letra}</pre></div>
+          <button class="editar" data-key="${key}">Editar</button>
+        `;
+        div.querySelector("h3").onclick = () => {
+          const letra = div.querySelector(".letra");
+          letra.style.display = letra.style.display === "none" ? "block" : "none";
+        };
+        div.querySelector(".estrella").onclick = (e) => {
+          e.stopPropagation();
+          const key = e.target.dataset.key;
+          const nuevaValor = !data[key].favorita;
+          update(ref(db, `canciones/${key}`), { favorita: nuevaValor });
+        };
+        div.querySelector(".editar").onclick = (e) => {
+          e.stopPropagation();
+          const c = data[key];
+          document.getElementById("titulo").value = c.titulo;
+          document.getElementById("autor").value = c.autor;
+          document.getElementById("letra").value = c.letra;
+          document.getElementById("genero").value = c.genero;
+          document.getElementById("notas").value = c.notas;
+          editKey = key;
+          modal.classList.remove("oculto");
+        };
+        lista.appendChild(div);
       });
     });
   };
@@ -80,5 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   buscar.oninput = cargarCanciones;
+  filtroFavoritas.onchange = cargarCanciones;
   cargarCanciones();
 });
