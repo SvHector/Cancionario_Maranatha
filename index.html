@@ -16,6 +16,35 @@
 <style>
   #splash {
     position: fixed;
+    background: #000000;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #splash img {
+    width: 200px;
+    max-width: 60%;
+  }
+</style>
+<div id="splash">
+  <img src="splash-screen.png" alt="Cargando...">
+</div>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('splash').style.display = 'none';
+    }, 2000);
+  });
+</script>
+
+
+<style>
+  #splash {
+    position: fixed;
     background: black;
     color: white;
     width: 100vw;

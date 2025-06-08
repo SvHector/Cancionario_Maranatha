@@ -1,3 +1,3 @@
 # Maranatha Cancionero
 
-App PWA con Firebase, splash screen e íconos. Favoritos activado.
+Diseño en blanco y negro como el logotipo. Splash animado y Firebase activo.
