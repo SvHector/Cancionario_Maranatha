@@ -4,13 +4,14 @@ import { db, ref, push, set, onValue, update } from "./firebase-config.js";
 document.addEventListener("DOMContentLoaded", () => {
   const lista = document.getElementById("lista-canciones");
   const buscar = document.getElementById("buscar");
-  const filtroFavoritas = document.getElementById("filtroFavoritas");
+  const btnFavoritas = document.getElementById("filtroFavoritasBtn");
   const btnNueva = document.getElementById("btn-nueva");
   const modal = document.getElementById("formulario-cancion");
   const guardar = document.getElementById("guardar-cancion");
   const cancelar = document.getElementById("cancelar");
 
   let editKey = null;
+  let mostrarFavoritas = false;
   const cancionesRef = ref(db, "canciones");
 
   const cargarCanciones = () => {
@@ -22,13 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
       Object.entries(data).forEach(([key, c]) => {
         if (
           (filtro && !c.titulo.toLowerCase().includes(filtro) && !c.autor.toLowerCase().includes(filtro)) ||
-          (filtroFavoritas.checked && !c.favorita)
+          (mostrarFavoritas && !c.favorita)
         ) return;
 
         const div = document.createElement("div");
         div.className = "cancion";
         div.innerHTML = `
-          ⭐ <span class="estrella" data-key="${key}" style="cursor:pointer;color:${c.favorita ? 'gold' : '#ccc'};">★</span><br>
+          <span class="estrella" data-key="${key}" style="color:${c.favorita ? 'gold' : '#555'};">★</span>
           <h3>${c.titulo}</h3>
           <p><strong>Autor:</strong> ${c.autor}</p>
           ${c.notas ? `<p><em>${c.notas}</em></p>` : ""}
@@ -88,6 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   buscar.oninput = cargarCanciones;
-  filtroFavoritas.onchange = cargarCanciones;
+  btnFavoritas.onclick = () => {
+    mostrarFavoritas = !mostrarFavoritas;
+    btnFavoritas.textContent = mostrarFavoritas ? "⭐ Ver todas" : "⭐ Favoritas";
+    cargarCanciones();
+  };
   cargarCanciones();
 });

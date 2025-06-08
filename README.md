@@ -1,3 +1,3 @@
-# Maranatha Cancionero
+# Cancionero Maranatha
 
-Diseño en blanco y negro como el logotipo. Splash animado y Firebase activo.
+Tema blanco y negro con favoritos, sin splash screen.

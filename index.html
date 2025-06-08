@@ -3,78 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#2e7d32" />
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
-  <title>Cancionero</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-  </style>
+  <title>Cancionero Maranatha</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="app.js"></script>
 </head>
 <body>
-
-<style>
-  #splash {
-    position: fixed;
-    background: #000000;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  #splash img {
-    width: 200px;
-    max-width: 60%;
-  }
-</style>
-<div id="splash">
-  <img src="splash-screen.png" alt="Cargando...">
-</div>
-<script>
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('splash').style.display = 'none';
-    }, 2000);
-  });
-</script>
-
-
-<style>
-  #splash {
-    position: fixed;
-    background: black;
-    color: white;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  #splash img {
-    width: 250px;
-    max-width: 70%;
-  }
-</style>
-<div id="splash">
-  <img src="splash-screen.png" alt="Splash Screen">
-</div>
-<script>
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('splash').style.display = 'none';
-    }, 2000); // 2 segundos
-  });
-</script>
-
   <header>
     <h1>Cancionero</h1>
     <input type="text" id="buscar" placeholder="Buscar canciones...">
-    <label><input type="checkbox" id="filtroFavoritas"> ⭐ Solo favoritas</label>
+    <button id="filtroFavoritasBtn">⭐ Favoritas</button>
     <button id="btn-nueva">+ Nueva canción</button>
   </header>
   <main>
@@ -92,6 +29,5 @@
       </div>
     </div>
   </main>
-  <script type="module" src="app.js"></script>
 </body>
 </html>
