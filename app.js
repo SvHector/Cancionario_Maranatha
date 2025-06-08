@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p><strong>Autor:</strong> ${c.autor}</p>
           ${c.notas ? `<p><em>${c.notas}</em></p>` : ""}
           <div class="letra" style="display:none;"><pre>${c.letra}</pre></div>
-          <button class="editar" data-key="${key}">Editar</button>
+          <button class="editar" data-key="${key}">Editar</button> <button class="eliminar" data-key="${key}">🗑️</button>
         `;
         div.querySelector("h3").onclick = () => {
           const letra = div.querySelector(".letra");
@@ -45,6 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
           const key = e.target.dataset.key;
           const nuevaValor = !data[key].favorita;
           update(ref(db, `canciones/${key}`), { favorita: nuevaValor });
+        };
+        
+        div.querySelector(".eliminar").onclick = (e) => {
+          e.stopPropagation();
+          const key = e.target.dataset.key;
+          if (confirm("¿Estás seguro de que deseas eliminar esta canción?")) {
+            update(ref(db, `canciones/${key}`), null);
+          }
         };
         div.querySelector(".editar").onclick = (e) => {
           e.stopPropagation();
