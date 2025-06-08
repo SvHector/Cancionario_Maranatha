@@ -1,3 +1,3 @@
 # Cancionero Maranatha
 
-Tema blanco y negro con favoritos, sin splash screen.
+Incluye pantalla de carga animada y logotipo 1NL CORARIO.

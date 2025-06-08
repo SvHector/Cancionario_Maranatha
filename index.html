@@ -8,6 +8,33 @@
   <script type="module" src="app.js"></script>
 </head>
 <body>
+
+<style>
+  #splash {
+    position: fixed;
+    background: #000000;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #splash img {
+    width: 100px;
+  }
+</style>
+<div id="splash">
+  <img src="loader.gif" alt="Cargando...">
+</div>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('splash').style.display = 'none';
+    }, 2000);
+  });
+</script>
+
   <header>
     <h1>Cancionero</h1>
     <input type="text" id="buscar" placeholder="Buscar canciones...">
