@@ -1,3 +1,3 @@
 # Cancionero Maranatha
 
-Ahora incluye función para eliminar canciones con ícono 🗑️.
+✔ Eliminación funcional con 'remove()' de Firebase.

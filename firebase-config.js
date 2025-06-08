@@ -1,8 +1,7 @@
 
-// Importa Firebase SDK (v9 modular)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import {
-  getDatabase, ref, set, push, update, onValue
+  getDatabase, ref, set, push, update, onValue, remove
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -18,4 +17,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-export { db, ref, set, push, update, onValue };
+export { db, ref, set, push, update, onValue, remove };

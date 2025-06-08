@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
           e.stopPropagation();
           const key = e.target.dataset.key;
           if (confirm("¿Estás seguro de que deseas eliminar esta canción?")) {
-            update(ref(db, `canciones/${key}`), null);
+            remove(ref(db, `canciones/${key}`));
           }
         };
         div.querySelector(".editar").onclick = (e) => {
