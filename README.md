@@ -1,1 +1,3 @@
-Prueba manual de eliminación de una canción por ID en Firebase.
+# Cancionero Maranatha
+
+✅ Función de eliminar corregida y funcional con botón 🗑️.

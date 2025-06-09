@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Prueba Eliminar Canción</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cancionero Maranatha</title>
+  <link rel="stylesheet" href="style.css" />
   <script type="module" src="app.js"></script>
 </head>
-<body style="font-family:sans-serif;background:#000;color:#fff;padding:2rem;">
-  <h2>Eliminar canción manualmente</h2>
-  <label>ID de canción: <input id="key" type="text" placeholder="-ID..."></label><br><br>
-  <button id="btn-eliminar">🗑️ Eliminar canción</button>
+<body>
+
+<style>
+  #splash {
+    position: fixed;
+    background: #000000;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #splash img {
+    width: 100px;
+  }
+</style>
+<div id="splash">
+  <img src="loader.gif" alt="Cargando...">
+</div>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('splash').style.display = 'none';
+    }, 2000);
+  });
+</script>
+
+  <header>
+    <h1>Cancionero</h1>
+    <input type="text" id="buscar" placeholder="Buscar canciones...">
+    <button id="filtroFavoritasBtn">⭐ Favoritas</button>
+    <button id="btn-nueva">+ Nueva canción</button>
+  </header>
+  <main>
+    <section id="lista-canciones"></section>
+    <div id="formulario-cancion" class="modal oculto">
+      <h2>Nueva canción</h2>
+      <input type="text" id="titulo" placeholder="Título">
+      <input type="text" id="autor" placeholder="Autor">
+      <textarea id="letra" placeholder="Letra..." rows="10"></textarea>
+      <input type="text" id="genero" placeholder="Género (opcional)">
+      <textarea id="notas" placeholder="Notas (opcional)"></textarea>
+      <div class="acciones">
+        <button id="guardar-cancion">Guardar</button>
+        <button id="cancelar">Cancelar</button>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
