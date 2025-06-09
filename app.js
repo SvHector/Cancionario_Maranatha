@@ -120,3 +120,16 @@ document.addEventListener("click", (e) => {
   }
 });
 
+
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("ver-letra")) {
+    const letraDiv = e.target.parentElement.querySelector(".letra");
+    letraDiv.classList.toggle("mostrar");
+    e.target.textContent = letraDiv.classList.contains("mostrar") ? "Ocultar Letra" : "Ver Letra";
+  }
+});
+
+window.addEventListener("load", () => {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("splash-logo").style.display = "none";
+});
