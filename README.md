@@ -1,3 +1,3 @@
 # Cancionero Maranatha
 
-✅ Función de eliminar corregida y funcional con botón 🗑️.
+✅ Corrección para mostrar letra al hacer clic sobre la canción.
