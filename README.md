@@ -1,3 +1,3 @@
 # Cancionero Maranatha
 
-✅ Corrección para mostrar letra al hacer clic sobre la canción.
+🎵 Letra se despliega con animación suave.

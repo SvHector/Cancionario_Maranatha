@@ -79,3 +79,14 @@ button {
   color: gold;
   cursor: pointer;
 }
+
+.letra {
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  max-height: 0;
+  opacity: 0;
+}
+.letra.mostrar {
+  max-height: 500px;
+  opacity: 1;
+}
