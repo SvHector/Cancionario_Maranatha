@@ -1,3 +1,3 @@
 # Cancionero Maranatha
 
-🎵 Corrección: animación suave al mostrar letra funcional.
+✅ Letra funcional al hacer clic, con animación elegante.
