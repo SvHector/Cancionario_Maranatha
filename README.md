@@ -1,3 +1,3 @@
 # Cancionero Maranatha
 
-🎵 Letra se despliega con animación suave.
+🎵 Corrección: animación suave al mostrar letra funcional.
