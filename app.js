@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3>${c.titulo}</h3>
           <p><strong>Autor:</strong> ${c.autor}</p>
           ${c.notas ? `<p><em>${c.notas}</em></p>` : ""}
-          <div class="letra" style="display:none;"><pre>${c.letra}</pre></div>
+          <button class="ver-letra">Ver Letra</button><div class="letra" style="display:none;"><pre>${c.letra}</pre></div>
           <button class="editar" data-key="${key}">Editar</button>
           <button class="eliminar" data-key="${key}">🗑️</button>
         `;
@@ -107,3 +107,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cargarCanciones();
 });
+
+
+// Delegar clic para botones "Ver Letra"
+
+document.addEventListener("click", (e) => {
+  if (e.target && e.target.classList.contains("ver-letra")) {
+    const contenedor = e.target.closest(".cancion");
+    const letra = contenedor.querySelector(".letra");
+    letra.classList.toggle("mostrar");
+    e.target.textContent = letra.classList.contains("mostrar") ? "Ocultar Letra" : "Ver Letra";
+  }
+});
+

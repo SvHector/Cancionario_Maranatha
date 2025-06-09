@@ -1,3 +1,3 @@
 # Cancionero Maranatha
 
-✅ Letra funcional al hacer clic, con animación elegante.
+✅ Botón cambia entre 'Ver Letra' y 'Ocultar Letra'.
