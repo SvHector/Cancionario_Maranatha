@@ -1,3 +1,1 @@
-# Cancionero Maranatha
-
-✅ Ahora con opción de instalación como App (PWA).
+Prueba manual de eliminación de una canción por ID en Firebase.
